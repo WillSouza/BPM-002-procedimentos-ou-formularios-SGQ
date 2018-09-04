@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form</title>
+
+    <link rel="stylesheet" type="text/css" href="/resources/style-guide/css/fluig-style-guide.min.css">
+    <script src="/resources/js/jquery/jquery.js"></script>
+    <script src="/resources/js/jquery/jquery-ui.min.js"></script>
+    <script src="/resources/js/mustache/mustache-min.js"></script>
+    <script src="/resources/style-guide/js/fluig-style-guide.min.js"></script>
+
+    <!-- CUSTOM -->
+    <link href="/resources/style-guide/css/fluig-style-guide-filter.min.css" rel="stylesheet" type="text/css">
+    <link href="/resources/style-guide/css/fluig-style-guide-ratingstars.min.css" rel="stylesheet" type="text/css">
+    <script src="/resources/style-guide/js/fluig-style-guide-filter.min.js"></script>
+    <script src="/resources/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+    <script type="text/javascript" src="main.js" charset="utf-8"></script>
+
+    <link href='/webdesk/customresources?cid=1&resourceName=temaFormulario/0.css' type='text/css' rel='stylesheet' />
+    
+</head>
+
+<body class="fluig-style-guide">
+
+    <form class="totvs-form grid vertical create-form-components ui-sortable t0" name="createFormComponents" style="padding-left: 10px; padding-right: 10px;">
+        <h1 class="title-form-application">Elabora&ccedil;&atilde;o de documentos</h1>
+        <div class="paragraph-is-required system-message-information alert alert-info" role="alert">Todos os campos com * s&atilde;o de preenchimento obrigat&oacute;rio.</div>
+        <div style="" class="form-field" data-type="textbox" data-show-properties="" data-field-name="solicitante">
+            <div class="form-input">
+                <div class="form-group">
+                    <label>Solicitante</label><span class="required text-danger"><strong>*</strong></span>
+                    <input class="form-control" name="solicitante" id="solicitante" value="" placeholder="" data-size="small" maxlength="255" required="required" analytics="true" gooddataid="1" style="width: 25%;" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="form-field" data-type="textbox" data-show-properties="" data-field-name="documento" style="position: relative; left: 0px; top: 0px;">
+            <div class="form-input">
+                <div class="form-group">
+                    <label>Nome do documento</label><span class="required text-danger"><strong>*</strong></span>
+                    <input class="form-control" name="documento" id="documento" value="" placeholder="Exemplo: PO.XXXX.RYY – NOME DO PROCEDIMENTO COMPLETO" data-size="big" maxlength="255" required="required" analytics="true" gooddataid="3" style="width: 100%;" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="form-field" data-type="textarea" data-show-properties="" data-field-name="descricao">
+            <div class="form-input">
+                <div class="form-group">
+                    <label>Descri&ccedil;&atilde;o da solicita&ccedil;&atilde;o</label><span class="required text-danger"><strong>*</strong></span>
+                    <textarea class="form-control" rows="3" name="descricao" id="descricao" placeholder="Descrever claramente a elabora&ccedil;&atilde;o ou alteração do documento, anexando se necess&aacute;rio documento para esclarecimento." data-size="big" maxlength="4000" required="required"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="form-field" data-type="combo" data-show-properties="" data-field-name="departamento" style="position: relative; left: 0px; top: 0px;">
+            <div class="form-input">
+                <div class="form-group">
+                    <label>Departamento respons&aacute;vel pelo documento</label><span class="required text-danger"><strong>*</strong></span>
+                    <input type="text" name="codDepartamento" id="codDepartamento" class="hide" />
+                    <input type="zoom" name="departamento" id="departamento" class="form-control"
+                        data-zoom="{
+                            'displayKey': 'DESCRIPTION',
+                            'datasetId': 'BPM-003-Papeis',
+                            'fields': [
+                                {
+                                    'field':'DESCRIPTION',
+                                    'label': 'Papel',
+                                    'filterValues': 'DESCRIPTION',
+                                    'standard': 'true'
+                                }   
+                            ]
+                        }"
+                    />
+
+                   <!-- <select class="form-control" name="departamento" id="departamento" required="required" analytics="true" gooddataid="2">
+                        <option value="Selecione o departamento respons&aacute;vel">Selecione o departamento respons&aacute;vel</option>
+                        <option value="VATC - ATENDIMENTO AO CORRETOR - VENDAS">VATC - ATENDIMENTO AO CORRETOR - VENDAS</option>
+                        <option value="REPA - REPASSE">REPA - REPASSE</option>
+                        <option value="RINV - RELA&Ccedil;&Otilde;ES COM INVESTIDORES">RINV - RELA&Ccedil;&Otilde;ES COM INVESTIDORES</option>
+                        <option value="VADM - RECURSOS HUMANOS E ADMINISTRA&Ccedil;&Atilde;O - VENDAS">VADM - RECURSOS HUMANOS E ADMINISTRA&Ccedil;&Atilde;O - VENDAS</option>
+                        <option value="QUAL - QUALIDADE">QUAL - QUALIDADE</option>
+                        <option value="TERR - PROSPEC&Ccedil;&Atilde;O DE TERRENOS">TERR - PROSPEC&Ccedil;&Atilde;O DE TERRENOS</option>
+                        <option value="PROJ - PROJETOS EXECUTIVOS">PROJ - PROJETOS EXECUTIVOS</option>
+                        <option value="PLAN - PLANEJAMENTO E CONTROLE">PLAN - PLANEJAMENTO E CONTROLE</option>
+                        <option value="DPAC - PERSONALIZA&Ccedil;&Atilde;O E ATENDIMENTO AO CLIENTE">DPAC - PERSONALIZA&Ccedil;&Atilde;O E ATENDIMENTO AO CLIENTE</option>
+                        <option value="ORCA - OR&Ccedil;AMENTO DE OBRAS">ORCA - OR&Ccedil;AMENTO DE OBRAS</option>
+                        <option value="OPES - OPERA&Ccedil;&Otilde;ES ESTRUTURADAS">OPES - OPERA&Ccedil;&Otilde;ES ESTRUTURADAS</option>
+                        <option value="MKTG - MARKETING">MKTG - MARKETING</option>
+                        <option value="VJUR - JUR&Iacute;DICO - VENDAS">VJUR - JUR&Iacute;DICO - VENDAS</option>
+                        <option value="JURI - JUR&Iacute;DICO">JURI - JUR&Iacute;DICO</option>
+                        <option value="GETT - GEST&Atilde;O T&Aacute;CNICA DE TERRENOS">GETT - GEST&Atilde;O T&Aacute;CNICA DE TERRENOS</option>
+                        <option value="VMKT - GEST&Atilde;O DE INFORMA&Ccedil;&Otilde;ES E MARKETING - VENDAS">VMKT - GEST&Atilde;O DE INFORMA&Ccedil;&Otilde;ES E MARKETING - VENDAS</option>
+                        <option value="GDEM - GEST&Atilde;O DE EMPREENDIMENTOS">GDEM - GEST&Atilde;O DE EMPREENDIMENTOS</option>
+                        <option value="VFIN - TESOURARIA - VENDAS">VFIN - TESOURARIA - VENDAS</option>
+                        <option value="ESTA - ESTATUT&Aacute;RIO">ESTA - ESTATUT&Aacute;RIO</option>
+                        <option value="DORH - DESENVOLVIMENTO ORGANIZACIONAL">DORH - DESENVOLVIMENTO ORGANIZACIONAL</option>
+                        <option value="DPRO - DESENVOLVIMENTO DE PRODUTO">DPRO - DESENVOLVIMENTO DE PRODUTO</option>
+                        <option value="DEMP - DESEMPENHO DOS EMPREENDIMENTOS">DEMP - DESEMPENHO DOS EMPREENDIMENTOS</option>
+                        <option value="INTE - ARQUITETURA DE INTERIORES">INTE - ARQUITETURA DE INTERIORES</option>
+                        <option value="ENGE - COORDENA&Ccedil;&Atilde;O DE OBRAS E GEST&Atilde;O T&Eacute;CNICA">ENGE - COORDENA&Ccedil;&Atilde;O DE OBRAS E GEST&Atilde;O T&Eacute;CNICA</option>
+                        <option value="CTRL - CONTROLADORIA E PLANEJAMENTO FINANCEIRO">CTRL - CONTROLADORIA E PLANEJAMENTO FINANCEIRO</option>
+                        <option value="CTFO - CONTRATOS DE FORNECEDORES">CTFO - CONTRATOS DE FORNECEDORES</option>
+                        <option value="CTCL - CONTRATOS DE CLIENTES">CTCL - CONTRATOS DE CLIENTES</option>                        
+                        <option value="DATE - ASSIST&Ecirc;NCIA T&Eacute;CNICA">DATE - ASSIST&Ecirc;NCIA T&Eacute;CNICA</option>
+                        <option value="RCRE - RECUPERA&Ccedil;&Atilde;O DE CR&Eacute;DITO">RCRE - RECUPERA&Ccedil;&Atilde;O DE CR&Eacute;DITO</option>
+                        <option value="CTBD - CONTABILIDADE E FISCAL">CTBD - CONTABILIDADE E FISCAL</option>
+                        <option value="RECE - RECEB&Iacute;VEIS">RECE - RECEB&Iacute;VEIS</option>
+                        <option value="LICE - LICENCIAMENTO">LICE - LICENCIAMENTO</option>
+                        <option value="VOPE - OPERA&Ccedil;&Otilde;ES - VENDAS">VOPE - OPERA&Ccedil;&Otilde;ES - VENDAS</option>
+                        <option value="PRCO - PROJETOS CORPORATIVOS">PRCO - PROJETOS CORPORATIVOS</option>
+                        <option value="SEDE - SEDE ADMINISTRATIVA">SEDE - SEDE ADMINISTRATIVA</option>
+                        <option value="SEGU - SEGURAN&Ccedil;A DO TRABALHO">SEGU - SEGURAN&Ccedil;A DO TRABALHO</option>
+                        <option value="SAC - SERVI&Ccedil;O DE ATENDIMENTO AO CLIENTE">SAC - SERVI&Ccedil;O DE ATENDIMENTO AO CLIENTE</option>
+                        <option value="SUPR - SUPRIMENTOS">SUPR - SUPRIMENTOS</option>
+                        <option value="TI - TECNOLOGIA DA INFORMA&Ccedil;&Atilde;O">TI - TECNOLOGIA DA INFORMA&Ccedil;&Atilde;O</option>
+                        <option value="TESO - TESOURARIA">TESO - TESOURARIA</option>
+                        <option value="VEND - VENDAS">VEND - VENDAS</option>
+                    </select> -->
+                </div>
+            </div>
+        </div>
+        <div class="form-field" data-type="radio" data-show-properties="" data-field-name="sou" analytics="true" gooddataid="4">
+            <div class="form-input">
+                <div class="form-group">
+                    <label>O Solicitante &eacute; aprovador deste documento?</label><span class="required text-danger"><strong>*</strong></span>
+                    <div class="radio-options">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="sou" id="sou" value="Sim" required="required">Sim</label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="sou" id="sou" value="N&atilde;o" required="required">N&atilde;o</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        var keyDown = false,
+            ctrl = 17,
+            vKey = 86,
+            Vkey = 118;
+
+        $(document).keydown(function(e) {
+            if (e.keyCode == ctrl) keyDown = true;
+        }).keyup(function(e) {
+            if (e.keyCode == ctrl) keyDown = false;
+        });
+
+        $('[data-only-numbers]').on('keypress', function(e) {
+            if (!e) {
+                var e = window.event;
+            }
+
+            if (e.keyCode > 0 && e.which == 0) {
+                return true;
+            }
+
+            if (e.keyCode) {
+                code = e.keyCode;
+            } else if (e.which) {
+                code = e.which;
+            }
+
+            if (code == 46) {
+                return true;
+            }
+
+            var character = String.fromCharCode(code);
+            if (character == '\b' || character == ' ' || character == '\t') {
+                return true;
+            }
+            if (keyDown && (code == vKey || code == Vkey)) {
+                return (character);
+            } else {
+                return (/[0-9]$/.test(character));
+            }
+        }).on('focusout', function(e) {
+            var $this = $(this);
+            if ($this.val() == "") {
+                return true;
+            }
+            $this.val($this.val().replace(/[^0-9\.]/g, ''));
+        }).on('paste', function(e) {
+            var $this = $(this);
+            setTimeout(function() {
+                $this.val($this.val().replace(/[^0-9\.]/g, ''));
+            }, 5);
+        });
+
+        $('.create-form-components').on('keyup', 'input[required="required"][type="text"], input[required="required"][type="number"], input[required="required"][type="date"], textarea[required="required"]', function() {
+            validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
+        });
+
+        $('.create-form-components').on('change', 'input[required="required"][type="checkbox"], input[required="required"][type="radio"], select[required="required"]', function() {
+            validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
+        });
+
+        function validationFieldsForm(field, type) {
+            if (type === "checkbox" || type === "radio") {
+                if (!field.is(':checked')) {
+                    field.parents('.form-field').addClass('required');
+                } else {
+                    field.parents('.form-field').removeClass('required');
+                }
+            } else {
+                if (!field.val().trim()) {
+                    field.parents('.form-field').addClass('required');
+                } else {
+                    field.parents('.form-field').removeClass('required');
+                }
+            }
+        }
+
+        var $zoomPreview = $(".zoom-preview");
+        if ($zoomPreview.length) {
+            $zoomPreview.parent().removeClass("input-group");
+            $zoomPreview.remove();
+        }
+
+        var ratings = $(".rating");
+        if (ratings.length > 0) ratingStars(ratings);
+
+        function ratingStars(stars) {
+            $.each(stars, function(i, obj) {
+                var field = $(this).closest(".form-group").find(".rating-value");
+                var tgt = $(obj);
+                tgt.html("");
+                var rating = FLUIGC.stars(tgt, {
+                    value: field.val()
+                });
+                rating.on("click", function(o) {
+                    field.val($(this).index() + 1);
+                });
+            });
+        }
+
+        $.each($("[data-date]"), function(i, o) {
+            var id = $(o).attr("id");
+            FLUIGC.calendar("#" + id);
+        });
+
+        $(document).ready(function() {
+            $.each($("[data-date]"), function(i, o) {
+                var id = $(o).attr("id");
+                if ($("#" + id).attr("readonly")) {
+                    $("#" + id).data('DateTimePicker').disable();
+                }
+            });
+        });
+    </script> 
+</body>
+
+</html>
