@@ -3,11 +3,14 @@ function createDataset(fields, constraints, sortFields) {
 	
 	var newDataset = DatasetBuilder.newDataset();
     
+    //var myQuery = findConstraint('SQL', constraints);
+    
     var papel = findConstraint("DESCRIPTION",constraints,"");
-
+    //var papel = "qualidade"; 
     log.info("**** Contraint SQL : "+papel);
     
     var myQuery = "SELECT * FROM fdn_role WHERE role_code LIKE '%aprovador_%' AND description LIKE '%"+papel +"%' ORDER BY description ASC";
+   // var myQuery = "SELECT * FROM FDN_GROUP WHERE GROUP_CODE LIKE 'BPM-002-Aprovador%' AND description LIKE '%"+grupo +"%' ORDER BY description ASC";
     
     log.info("##### My Query: "+myQuery);
 

@@ -10,11 +10,11 @@ function enableFields(form) {
         form.setEnabled('departamento', false);
         form.setEnabled('sou',false);
     }
-    if (activity == 9) {
+    if (activity == 9 || activity == 103 || activity == 100) {
     	form.setEnabled('solicitante', false);
         form.setEnabled('descricao', false);
-        form.setEnabled('documento', false);
-        form.setEnabled('departamento', false);
+        //form.setEnabled('documento', false);
+        //form.setEnabled('departamento', false);
         form.setEnabled('sou',false);
     }
     if (activity == 29) {
@@ -29,6 +29,29 @@ function enableFields(form) {
         form.setEnabled('documento', false);
         form.setEnabled('descricao', false);
         form.setEnabled('departamento', false);
+        form.setEnabled('sou',false);
+    }
+    if (activity == 9) {
+        form.setEnabled('solicitante', false);
+        form.setEnabled('descricao', false);
+        //form.setEnabled('documento', false);
+        //form.setEnabled('departamento', false);
+        form.setEnabled('sou',false);
+    }
+
+    if (activity == 103) {
+        form.setEnabled('solicitante', false);
+        form.setEnabled('descricao', false);
+        form.setEnabled('departamento', false);
+        form.setEnabled('documento', false);
+        form.setEnabled('sou',false);
+    }
+
+    if (activity == 100) {
+        form.setEnabled('solicitante', false);
+        form.setEnabled('descricao', false);
+        //form.setEnabled('departamento', false);
+        form.setEnabled('documento', false);
         form.setEnabled('sou',false);
     }
 }
