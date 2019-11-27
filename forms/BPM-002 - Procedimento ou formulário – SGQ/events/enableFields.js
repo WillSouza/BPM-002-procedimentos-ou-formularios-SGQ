@@ -18,7 +18,7 @@ function enableFields(form) {
         form.setEnabled('sou',false);
     }
     if (activity == 29) {
-    	form.setEnabled('solicitante', false);
+        form.setEnabled('solicitante', false);
         form.setEnabled('descricao', false);
         form.setEnabled('departamento', false);
         form.setEnabled('documento', false);
@@ -48,9 +48,9 @@ function enableFields(form) {
     }
 
     if (activity == 100) {
-        form.setEnabled('solicitante', false);
-        form.setEnabled('descricao', false);
-        //form.setEnabled('departamento', false);
+    	form.setEnabled('descricao', true);
+    	form.setEnabled('solicitante', false);
+       // form.setEnabled('departamento', false);
         form.setEnabled('documento', false);
         form.setEnabled('sou',false);
     }

@@ -126,6 +126,7 @@ function afterTaskComplete(colleagueId,nextSequenceId,userList){
                 param.put("justificativa", hAPI.getCardValue("justificaParecer"));  
                 param.put("nomDocumento", hAPI.getCardValue("documento"));
                 param.put("dataSolic", hAPI.getCardValue("dataSolic"));
+                param.put("solicitante", hAPI.getCardValue("solicitante"));
                 param.put("dataFinalizacao", data);
 
 

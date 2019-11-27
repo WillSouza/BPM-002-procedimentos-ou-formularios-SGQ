@@ -4,12 +4,12 @@
       <companyId>1</companyId>
       <processId>BPM-002</processId>
     </processDefinitionPK>
-    <processDescription>Elaboração de documentos</processDescription>
-    <instruction>Atividades para solicitação de elaboração ou alteração de documentos</instruction>
+    <processDescription>Procedimento ou formulário - SGQ</processDescription>
+    <instruction>Elaboração ou alteração de documentos do sistema gestão qualidade (ex.: procedimentos, instruções, formulários, modelos, políticas, manuais, guias, etc.) considerando análise, ajuste, aprovação e publicação.</instruction>
     <active>true</active>
     <publicProcess>true</publicProcess>
     <volumeId>Default</volumeId>
-    <categoryId>BPM</categoryId>
+    <categoryId>QUALIDADE</categoryId>
     <managerEngineAllocationId>Grupo</managerEngineAllocationId>
     <managerEngineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;BPM-002-Adm&lt;/Group&gt;&lt;/AssignmentController&gt;</managerEngineAllocationConfiguration>
     <snapshotFrequency>0</snapshotFrequency>
@@ -21,13 +21,15 @@
     <complementsLevel>3</complementsLevel>
     <notifyRequisitionerComplements>true</notifyRequisitionerComplements>
     <notifyManagerComplements>true</notifyManagerComplements>
+    <deadlineTime>0</deadlineTime>
+    <warningDeadlineTime>0</warningDeadlineTime>
     <notifyAuthorityComplements>true</notifyAuthorityComplements>
   </ProcessDefinition>
   <ProcessDefinitionVersion>
     <processDefinitionVersionPK>
       <companyId>1</companyId>
-      <processId>Elaboração de documentos</processId>
-      <version>11</version>
+      <processId>Procedimento ou formulário - SGQ</processId>
+      <version>20</version>
     </processDefinitionVersionPK>
     <versionDescription>Nova Versão.</versionDescription>
     <formId>1102</formId>
@@ -38,7 +40,7 @@
     <blockedVersion>false</blockedVersion>
     <counterSign>false</counterSign>
     <openInstances>0</openInstances>
-    <bpmnVersion>1</bpmnVersion>
+    <bpmnVersion>2</bpmnVersion>
     <processStates/>
     <favorito>false</favorito>
     <inheritFormSecurity>false</inheritFormSecurity>
@@ -54,18 +56,18 @@
       </processStatePK>
       <stateName>Início</stateName>
       <stateDescription>Início</stateDescription>
-      <instruction>Preencher o nome do documento, descrição da elaboração ou alteração do documento, departamento responsável pelo documento e anexá-lo caso necessário. </instruction>
+      <instruction>Preencher o nome do documento e a descrição da elaboração ou alteração. Se necessário, pode-se anexar documentos.</instruction>
       <deadlineTime>88560</deadlineTime>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
       <engineAllocationId></engineAllocationId>
       <engineAllocationConfiguration></engineAllocationConfiguration>
-      <selectColleague>0</selectColleague>
+      <selectColleague>1</selectColleague>
       <initialState>true</initialState>
-      <notifyAuthorityDelay>false</notifyAuthorityDelay>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
       <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
       <allowanceAuthorityTime>0</allowanceAuthorityTime>
-      <frequenceAuthorityTime>0</frequenceAuthorityTime>
+      <frequenceAuthorityTime>28800</frequenceAuthorityTime>
       <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
       <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
       <transferAttachments>false</transferAttachments>
@@ -89,7 +91,7 @@
       <signalId>0</signalId>
       <counterSign>false</counterSign>
       <openInstances>0</openInstances>
-      <noticeExpirationAuthorityTime>0</noticeExpirationAuthorityTime>
+      <noticeExpirationAuthorityTime>28860</noticeExpirationAuthorityTime>
       <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
       <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
       <destinationStates/>
@@ -104,36 +106,37 @@
       </processStatePK>
       <stateName>Analisar solicitação</stateName>
       <stateDescription>Analisar solicitação</stateDescription>
-      <instruction>Analisar as alterações propostas pelo solicitante / aprovador, ajustar layout do documento e submeter à aprovação</instruction>
-      <deadlineTime>28800</deadlineTime>
+      <instruction>Analisar a solicitação e indicar o tipo de encaminhamento (ajustar, retornar ao solicitante, finalizar, aprovar). Quando o encaminhamento for “Ajustar documento” deve-se indicar o colaborador responsável para realizar a atividade.</instruction>
+      <deadlineTime>31680</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
       <engineAllocationId>Campo Formulário</engineAllocationId>
       <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;analistaQualidade&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
-      <selectColleague>0</selectColleague>
+      <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
       <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <allowanceAuthorityTime>60</allowanceAuthorityTime>
       <frequenceAuthorityTime>28800</frequenceAuthorityTime>
       <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
       <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
       <transferAttachments>false</transferAttachments>
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>170</positionX>
       <positionY>246</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>true</notifyManagerFollowUp>
-      <notifyManagerDelay>true</notifyManagerDelay>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
       <allowanceManagerTime>0</allowanceManagerTime>
       <frequenceManagerTime>28800</frequenceManagerTime>
       <inhibitTransfer>false</inhibitTransfer>
-      <periodId>EZTEC - default</periodId>
+      <periodId></periodId>
       <stateType>0</stateType>
       <bpmnType>80</bpmnType>
       <signalId>0</signalId>
@@ -155,13 +158,14 @@
       </processStatePK>
       <stateName>Aprovar documento</stateName>
       <stateDescription>Aprovar documento</stateDescription>
-      <instruction>Aprovar o documento final</instruction>
+      <instruction>Analisar o documento elaborado e, caso esteja de acordo, selecionar &quot;Aprovado&quot;. Caso contrário, selecionar &quot;Reprovado&quot; e indicar obrigatoriamente o motivo.</instruction>
       <deadlineTime>158400</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
       <engineAllocationId>Campo Formulário</engineAllocationId>
       <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;proxAprovador&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
-      <selectColleague>0</selectColleague>
+      <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
       <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
@@ -173,10 +177,10 @@
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
       <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>830</positionX>
-      <positionY>596</positionY>
+      <positionY>589</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -206,36 +210,37 @@
       </processStatePK>
       <stateName>Publicar documento</stateName>
       <stateDescription>Publicar documento</stateDescription>
-      <instruction>Publicar documento</instruction>
-      <deadlineTime>57600</deadlineTime>
+      <instruction>Publicar o documento aprovado.</instruction>
+      <deadlineTime>63360</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
-      <engineAllocationId>Campo Formulário</engineAllocationId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;analistaQualidade&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
-      <selectColleague>0</selectColleague>
+      <engineAllocationId>Pool Papel</engineAllocationId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Role&gt;BPM-002-Publicador&lt;/Role&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
       <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>0</allowanceAuthorityTime>
+      <allowanceAuthorityTime>60</allowanceAuthorityTime>
       <frequenceAuthorityTime>28800</frequenceAuthorityTime>
       <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
       <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
       <transferAttachments>false</transferAttachments>
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>980</positionX>
-      <positionY>246</positionY>
+      <positionY>247</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>true</notifyManagerDelay>
+      <notifyManagerDelay>false</notifyManagerDelay>
       <allowanceManagerTime>0</allowanceManagerTime>
       <frequenceManagerTime>28800</frequenceManagerTime>
       <inhibitTransfer>false</inhibitTransfer>
-      <periodId>EZTEC - default</periodId>
+      <periodId></periodId>
       <stateType>0</stateType>
       <bpmnType>80</bpmnType>
       <signalId>0</signalId>
@@ -255,30 +260,31 @@
         <version>1</version>
         <sequence>100</sequence>
       </processStatePK>
-      <stateName>Analisar documento</stateName>
-      <stateDescription>Analisar documento</stateDescription>
-      <instruction></instruction>
-      <deadlineTime>86400</deadlineTime>
+      <stateName>Pré-aprovar documento</stateName>
+      <stateDescription>Pré-aprovar documento</stateDescription>
+      <instruction>Analisar o documento conforme os controles previstos no SGQ e indicar o tipo de encaminhamento (aprovar ou ajustar). Quando aprovado deve-se indicar também o departamento responsável pelo documento e, se houver, aprovador adicional.</instruction>
+      <deadlineTime>95040</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
       <engineAllocationId>Campo Formulário</engineAllocationId>
       <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;analistaQualidade&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
-      <selectColleague>0</selectColleague>
+      <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
       <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
-      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceAuthorityTime>60</allowanceAuthorityTime>
+      <frequenceAuthorityTime>28800</frequenceAuthorityTime>
       <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
       <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
       <transferAttachments>false</transferAttachments>
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
-      <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>670</positionX>
-      <positionY>246</positionY>
+      <positionY>247</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -286,13 +292,13 @@
       <allowanceManagerTime>0</allowanceManagerTime>
       <frequenceManagerTime>0</frequenceManagerTime>
       <inhibitTransfer>false</inhibitTransfer>
-      <periodId>EZTEC - default</periodId>
+      <periodId></periodId>
       <stateType>0</stateType>
       <bpmnType>80</bpmnType>
       <signalId>0</signalId>
       <counterSign>false</counterSign>
       <openInstances>0</openInstances>
-      <noticeExpirationAuthorityTime>3660</noticeExpirationAuthorityTime>
+      <noticeExpirationAuthorityTime>28860</noticeExpirationAuthorityTime>
       <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
       <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
       <destinationStates/>
@@ -308,24 +314,25 @@
       </processStatePK>
       <stateName>Ajustar documento</stateName>
       <stateDescription>Ajustar documento</stateDescription>
-      <instruction></instruction>
+      <instruction>Ajustar o documento conforme os controles previstos no SGQ.</instruction>
       <deadlineTime>158400</deadlineTime>
+      <deadlineFieldName></deadlineFieldName>
       <joint>false</joint>
       <agreementPercentage>0</agreementPercentage>
       <engineAllocationId>Grupo</engineAllocationId>
       <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;BPM-002-Qualidade&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
-      <selectColleague>0</selectColleague>
+      <selectColleague>1</selectColleague>
       <initialState>false</initialState>
       <notifyAuthorityDelay>true</notifyAuthorityDelay>
       <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
-      <allowanceAuthorityTime>3600</allowanceAuthorityTime>
-      <frequenceAuthorityTime>3600</frequenceAuthorityTime>
+      <allowanceAuthorityTime>60</allowanceAuthorityTime>
+      <frequenceAuthorityTime>28800</frequenceAuthorityTime>
       <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
       <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
       <transferAttachments>false</transferAttachments>
       <subProcessId></subProcessId>
       <formFolder>0</formFolder>
-      <notifyAuthorityFollowUp>false</notifyAuthorityFollowUp>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
       <notifyRequisitionerFollowUp>true</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>480</positionX>
@@ -333,22 +340,116 @@
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
-      <notifyManagerDelay>false</notifyManagerDelay>
-      <allowanceManagerTime>0</allowanceManagerTime>
-      <frequenceManagerTime>0</frequenceManagerTime>
+      <notifyManagerDelay>true</notifyManagerDelay>
+      <allowanceManagerTime>60</allowanceManagerTime>
+      <frequenceManagerTime>28800</frequenceManagerTime>
       <inhibitTransfer>false</inhibitTransfer>
-      <periodId>EZTEC - default</periodId>
+      <periodId></periodId>
       <stateType>0</stateType>
       <bpmnType>80</bpmnType>
       <signalId>0</signalId>
       <counterSign>false</counterSign>
       <openInstances>0</openInstances>
-      <noticeExpirationAuthorityTime>3660</noticeExpirationAuthorityTime>
+      <noticeExpirationAuthorityTime>28860</noticeExpirationAuthorityTime>
       <noticeExpirationRequisitionerTime>0</noticeExpirationRequisitionerTime>
-      <noticeExpirationManagerTime>0</noticeExpirationManagerTime>
+      <noticeExpirationManagerTime>28860</noticeExpirationManagerTime>
       <destinationStates/>
       <digitalSignature>false</digitalSignature>
       <executionType>0</executionType>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <version>1</version>
+        <sequence>136</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>80</positionX>
+      <positionY>429</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>36</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <version>1</version>
+        <sequence>137</sequence>
+      </processStatePK>
+      <stateName>Intermediário</stateName>
+      <stateDescription>Intermediário</stateDescription>
+      <instruction>Evento intermediário do processo</instruction>
+      <deadlineTime>0</deadlineTime>
+      <joint>false</joint>
+      <agreementPercentage>0</agreementPercentage>
+      <engineAllocationId></engineAllocationId>
+      <engineAllocationConfiguration></engineAllocationConfiguration>
+      <selectColleague>0</selectColleague>
+      <initialState>false</initialState>
+      <notifyAuthorityDelay>true</notifyAuthorityDelay>
+      <notifyRequisitionerDelay>false</notifyRequisitionerDelay>
+      <allowanceAuthorityTime>1</allowanceAuthorityTime>
+      <frequenceAuthorityTime>1</frequenceAuthorityTime>
+      <allowanceRequisitionerTime>0</allowanceRequisitionerTime>
+      <frequenceRequisitionerTime>0</frequenceRequisitionerTime>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <notifyAuthorityFollowUp>true</notifyAuthorityFollowUp>
+      <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
+      <automatic>false</automatic>
+      <positionX>705</positionX>
+      <positionY>480</positionY>
+      <forecastedEffortType>0</forecastedEffortType>
+      <forecastedEffort>0</forecastedEffort>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
+      <notifyManagerDelay>false</notifyManagerDelay>
+      <frequenceManagerTime>0</frequenceManagerTime>
+      <inhibitTransfer>false</inhibitTransfer>
+      <periodId></periodId>
+      <stateType>0</stateType>
+      <bpmnType>42</bpmnType>
+      <signalId>0</signalId>
+      <counterSign>false</counterSign>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+      <parentSequence>0</parentSequence>
     </ProcessState>
     <ProcessState>
       <processStatePK>
@@ -416,7 +517,32 @@
       <formFolder>0</formFolder>
       <automatic>true</automatic>
       <positionX>850</positionX>
-      <positionY>230</positionY>
+      <positionY>231</positionY>
+      <inhibitTransfer>false</inhibitTransfer>
+      <stateType>1</stateType>
+      <bpmnType>120</bpmnType>
+      <signalId>0</signalId>
+      <openInstances>0</openInstances>
+      <destinationStates/>
+      <digitalSignature>false</digitalSignature>
+    </ProcessState>
+    <ProcessState>
+      <processStatePK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <version>1</version>
+        <sequence>133</sequence>
+      </processStatePK>
+      <stateName>Documento ajustado?</stateName>
+      <stateDescription>Documento ajustado?</stateDescription>
+      <joint>false</joint>
+      <initialState>false</initialState>
+      <transferAttachments>false</transferAttachments>
+      <subProcessId></subProcessId>
+      <formFolder>0</formFolder>
+      <automatic>true</automatic>
+      <positionX>67</positionX>
+      <positionY>223</positionY>
       <inhibitTransfer>false</inhibitTransfer>
       <stateType>1</stateType>
       <bpmnType>120</bpmnType>
@@ -458,7 +584,7 @@
       <positionY>264</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
-      <notifyManagerFollowUp>true</notifyManagerFollowUp>
+      <notifyManagerFollowUp>false</notifyManagerFollowUp>
       <notifyManagerDelay>false</notifyManagerDelay>
       <allowanceManagerTime>0</allowanceManagerTime>
       <frequenceManagerTime>0</frequenceManagerTime>
@@ -502,7 +628,7 @@
       <notifyRequisitionerFollowUp>false</notifyRequisitionerFollowUp>
       <automatic>false</automatic>
       <positionX>500</positionX>
-      <positionY>263</positionY>
+      <positionY>264</positionY>
       <forecastedEffortType>0</forecastedEffortType>
       <forecastedEffort>0</forecastedEffort>
       <notifyManagerFollowUp>false</notifyManagerFollowUp>
@@ -526,7 +652,7 @@
         <companyId>1</companyId>
         <processId>BPM-002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>11</version>
+        <version>20</version>
         <sequence>23</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;rdEncaminhamento&quot;) == &quot;Ajustar documento&quot;</condition>
@@ -539,7 +665,7 @@
         <companyId>1</companyId>
         <processId>BPM-002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>11</version>
+        <version>20</version>
         <sequence>23</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;rdEncaminhamento&quot;) == &quot;Propor Alteracao&quot;</condition>
@@ -552,7 +678,7 @@
         <companyId>1</companyId>
         <processId>BPM-002</processId>
         <expressionOrder>3</expressionOrder>
-        <version>11</version>
+        <version>20</version>
         <sequence>23</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;rdEncaminhamento&quot;) == &quot;Finalizar solicitacao&quot;</condition>
@@ -563,7 +689,7 @@
         <companyId>1</companyId>
         <processId>BPM-002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>11</version>
+        <version>20</version>
         <sequence>106</sequence>
       </conditionProcessStatePK>
       <condition>hAPI.getCardValue(&quot;valrdAprova&quot;) == &quot;reprovado&quot;</condition>
@@ -576,7 +702,7 @@
         <companyId>1</companyId>
         <processId>BPM-002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>11</version>
+        <version>20</version>
         <sequence>106</sequence>
       </conditionProcessStatePK>
       <condition>valida_aprovador()</condition>
@@ -587,12 +713,49 @@
         <companyId>1</companyId>
         <processId>BPM-002</processId>
         <expressionOrder>3</expressionOrder>
-        <version>11</version>
+        <version>20</version>
         <sequence>106</sequence>
       </conditionProcessStatePK>
       <condition>true</condition>
       <destinationSequenceId>31</destinationSequenceId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;analistaQualidade&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Role&gt;BPM-002-Publicador&lt;/Role&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Pool Papel</engineAllocationId>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <expressionOrder>1</expressionOrder>
+        <version>20</version>
+        <sequence>124</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;rdEncaminhamento2&quot;)== &quot;Ajustar documento&quot;</condition>
+      <destinationSequenceId>103</destinationSequenceId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;Group&gt;BPM-002-Qualidade&lt;/Group&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Grupo</engineAllocationId>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <expressionOrder>2</expressionOrder>
+        <version>20</version>
+        <sequence>124</sequence>
+      </conditionProcessStatePK>
+      <condition>hAPI.getCardValue(&quot;rdEncaminhamento2&quot;) == &quot;Finalizar solicitacao&quot;</condition>
+      <destinationSequenceId>119</destinationSequenceId>
+    </ConditionProcessState>
+    <ConditionProcessState>
+      <conditionProcessStatePK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <expressionOrder>3</expressionOrder>
+        <version>20</version>
+        <sequence>124</sequence>
+      </conditionProcessStatePK>
+      <condition>true</condition>
+      <destinationSequenceId>29</destinationSequenceId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;proxAprovador&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <engineAllocationId>Campo Formulário</engineAllocationId>
     </ConditionProcessState>
     <ConditionProcessState>
@@ -600,25 +763,25 @@
         <companyId>1</companyId>
         <processId>BPM-002</processId>
         <expressionOrder>1</expressionOrder>
-        <version>11</version>
-        <sequence>124</sequence>
+        <version>20</version>
+        <sequence>133</sequence>
       </conditionProcessStatePK>
-      <condition>hAPI.getCardValue(&quot;rdEncaminhamento2&quot;)== &quot;Ajustar documento&quot;</condition>
-      <destinationSequenceId>103</destinationSequenceId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;BaseActivity&gt;103&lt;/BaseActivity&gt;&lt;Returns&gt;Last&lt;/Returns&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
-      <engineAllocationId>Executor Atividade</engineAllocationId>
+      <condition>hAPI.getCardValue(&quot;docAjustado&quot;) == &quot;nao&quot;</condition>
+      <destinationSequenceId>9</destinationSequenceId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;analistaQualidade&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <engineAllocationId>Campo Formulário</engineAllocationId>
     </ConditionProcessState>
     <ConditionProcessState>
       <conditionProcessStatePK>
         <companyId>1</companyId>
         <processId>BPM-002</processId>
         <expressionOrder>2</expressionOrder>
-        <version>11</version>
-        <sequence>124</sequence>
+        <version>20</version>
+        <sequence>133</sequence>
       </conditionProcessStatePK>
       <condition>true</condition>
-      <destinationSequenceId>29</destinationSequenceId>
-      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;proxAprovador&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
+      <destinationSequenceId>136</destinationSequenceId>
+      <engineAllocationConfiguration>&lt;AssignmentController&gt;&lt;FormField&gt;analistaQualidade&lt;/FormField&gt;&lt;/AssignmentController&gt;</engineAllocationConfiguration>
       <engineAllocationId>Campo Formulário</engineAllocationId>
     </ConditionProcessState>
   </list>
@@ -685,23 +848,6 @@
       <returnPermited>false</returnPermited>
       <initialStateSequence>106</initialStateSequence>
       <finalStateSequence>29</finalStateSequence>
-      <returnLabel></returnLabel>
-      <name></name>
-      <automaticLink>false</automaticLink>
-      <defaultLink>false</defaultLink>
-      <type>0</type>
-    </ProcessLink>
-    <ProcessLink>
-      <processLinkPK>
-        <companyId>1</companyId>
-        <processId>BPM-002</processId>
-        <version>1</version>
-        <linkSequence>116</linkSequence>
-      </processLinkPK>
-      <actionLabel></actionLabel>
-      <returnPermited>false</returnPermited>
-      <initialStateSequence>4</initialStateSequence>
-      <finalStateSequence>9</finalStateSequence>
       <returnLabel></returnLabel>
       <name></name>
       <automaticLink>false</automaticLink>
@@ -861,6 +1007,107 @@
       <defaultLink>false</defaultLink>
       <type>0</type>
     </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <version>1</version>
+        <linkSequence>132</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>124</initialStateSequence>
+      <finalStateSequence>119</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <version>1</version>
+        <linkSequence>134</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>4</initialStateSequence>
+      <finalStateSequence>133</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <version>1</version>
+        <linkSequence>135</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>133</initialStateSequence>
+      <finalStateSequence>9</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <version>1</version>
+        <linkSequence>138</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>137</initialStateSequence>
+      <finalStateSequence>100</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <version>1</version>
+        <linkSequence>139</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>133</initialStateSequence>
+      <finalStateSequence>136</finalStateSequence>
+      <returnLabel></returnLabel>
+      <name></name>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
+    <ProcessLink>
+      <processLinkPK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <version>1</version>
+        <linkSequence>140</linkSequence>
+      </processLinkPK>
+      <actionLabel></actionLabel>
+      <returnPermited>false</returnPermited>
+      <initialStateSequence>136</initialStateSequence>
+      <finalStateSequence>137</finalStateSequence>
+      <returnLabel></returnLabel>
+      <automaticLink>false</automaticLink>
+      <defaultLink>false</defaultLink>
+      <type>0</type>
+    </ProcessLink>
   </list>
   <list/>
   <list>
@@ -999,6 +1246,7 @@
                 param.put(&quot;justificativa&quot;, hAPI.getCardValue(&quot;justificaParecer&quot;));  &#xd;
                 param.put(&quot;nomDocumento&quot;, hAPI.getCardValue(&quot;documento&quot;));&#xd;
                 param.put(&quot;dataSolic&quot;, hAPI.getCardValue(&quot;dataSolic&quot;));&#xd;
+                param.put(&quot;solicitante&quot;, hAPI.getCardValue(&quot;solicitante&quot;));&#xd;
                 param.put(&quot;dataFinalizacao&quot;, data);&#xd;
 &#xd;
 &#xd;
@@ -1080,7 +1328,7 @@
     log.info(&quot;#### BEFORETASK WKNextState : &quot;+ WKNextState);&#xd;
 &#xd;
      if (WKNumState == 103){&#xd;
-    	&#xd;
+		/*&#xd;
     	 var anexos   = hAPI.listAttachments();&#xd;
          var temAnexo = false;&#xd;
 &#xd;
@@ -1090,9 +1338,11 @@
 &#xd;
          if (!temAnexo) {&#xd;
              throw &quot;É preciso anexar o documento para continuar o processo!&quot;;&#xd;
-         }&#xd;
+		 }&#xd;
+		 */&#xd;
     }&#xd;
 &#xd;
+	// Caminho de &quot;Aprovadores adicionais&quot; para &quot;Analisar Solicitação&quot; &#xd;
   	if (WKNumState == 106 &amp;&amp; WKNextState == 9){&#xd;
 &#xd;
   		var userAtivo	= hAPI.getCardValue(&apos;userAtivo&apos;);&#xd;
@@ -1144,7 +1394,8 @@
 	    hAPI.addCardChild(&quot;tabObs&quot;, childData);&#xd;
 &#xd;
   	}&#xd;
-&#xd;
+	&#xd;
+	// Caminho da tarefa Analisar Solicitação para  FIM&#xd;
   	if (WKNumState == 23 &amp;&amp; WKNextState == 119){&#xd;
 &#xd;
   		var userAtivo	= hAPI.getCardValue(&apos;userAtivo&apos;);&#xd;
@@ -1196,6 +1447,7 @@
 	    hAPI.addCardChild(&quot;tabObs&quot;, childData);&#xd;
   	}&#xd;
 &#xd;
+	// Tarefa &quot;Ajustar documento&quot;&#xd;
   	if (WKNumState == 103) {&#xd;
 &#xd;
     	var numProces = hAPI.getCardValue(&apos;WKNumProces&apos;);&#xd;
@@ -1216,14 +1468,52 @@
 	 	log.info(&quot;**** anexo: &quot;+qtdAnexo);&#xd;
 &#xd;
 &#xd;
+		&#xd;
+	}&#xd;
+	// Tarefa &quot;Publicar documento&quot;&#xd;
+	if(WKNextState ==31){&#xd;
 &#xd;
-	   	if(rows &lt;= qtdAnexo ){&#xd;
+		var userAtivo	= hAPI.getCardValue(&apos;userAtivo&apos;);&#xd;
 &#xd;
-	   		throw &quot;Necessário inserir um anexo.&quot;;&#xd;
-	   	}	&#xd;
+		var now = new Date();&#xd;
+	    // console.log(&quot;FRE...&quot; + now.getDay());&#xd;
+	    &#xd;
+	    var nowDate     = now.getDate();&#xd;
+	    var nowMonth = now.getMonth() + 1;&#xd;
+	    var nowYear     = now.getFullYear();&#xd;
+	    &#xd;
+	    if(nowMonth &lt; 10){&#xd;
+	        nowMonth = &quot;0&quot;+nowMonth;&#xd;
+	    }&#xd;
+	    &#xd;
+	    if(nowDate &lt; 10){&#xd;
+	        nowDate = &quot;0&quot;+nowDate;&#xd;
+	    }&#xd;
 &#xd;
-    }// fim if&#xd;
-  	&#xd;
+	    var hora = now.getHours().toString();&#xd;
+	    var minuto = now.getMinutes().toString();&#xd;
+	    &#xd;
+	    if(hora.length == 1){&#xd;
+	        hora = 0+hora;&#xd;
+	    }&#xd;
+&#xd;
+	    if(minuto.length == 1){&#xd;
+	        minuto = 0+minuto;&#xd;
+	    }&#xd;
+&#xd;
+	  //  var dataHora = date+&quot;/&quot;+mes+&quot;/&quot;+fullDate.getFullYear() +&quot; &quot;+hora+ &quot;:&quot;+minuto;&#xd;
+&#xd;
+	    log.info(&quot;--- index :&quot;+ index);&#xd;
+	    var data = (nowDate+&quot;/&quot;+nowMonth+&quot;/&quot;+nowYear+&quot; &quot;+hora+&quot;:&quot;+minuto);&#xd;
+		&#xd;
+		var childData = new java.util.HashMap();&#xd;
+		childData.put(&quot;revisorAdicional&quot;, hAPI.getCardValue(&apos;departamento&apos;));&#xd;
+	    childData.put(&quot;nomeAprovador&quot;, userAtivo);&#xd;
+	    childData.put(&quot;dataAprovacao&quot;, data);&#xd;
+		hAPI.addCardChild(&quot;tabResp&quot;, childData);&#xd;
+		&#xd;
+		&#xd;
+	}&#xd;
 &#xd;
   	/*&#xd;
   	if(WKNumState == 29){&#xd;
@@ -1349,22 +1639,6 @@
   <list/>
   <list>
     <SwimLane>
-      <color>81cc8c</color>
-      <height>218</height>
-      <width>1191</width>
-      <positionX>0</positionX>
-      <positionY>174</positionY>
-      <stateName>Administrador - Gestão Qualidade</stateName>
-      <type>2</type>
-      <parentSequence>0</parentSequence>
-      <swimLanePK>
-        <companyId>1</companyId>
-        <processId>BPM-002</processId>
-        <version>1</version>
-        <sequence>1</sequence>
-      </swimLanePK>
-    </SwimLane>
-    <SwimLane>
       <color>869fbd</color>
       <height>165</height>
       <width>1191</width>
@@ -1377,16 +1651,32 @@
         <companyId>1</companyId>
         <processId>BPM-002</processId>
         <version>1</version>
+        <sequence>1</sequence>
+      </swimLanePK>
+    </SwimLane>
+    <SwimLane>
+      <color>81cc8c</color>
+      <height>218</height>
+      <width>1191</width>
+      <positionX>0</positionX>
+      <positionY>174</positionY>
+      <stateName>Administrador - Gestão Qualidade</stateName>
+      <type>2</type>
+      <parentSequence>0</parentSequence>
+      <swimLanePK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <version>1</version>
         <sequence>2</sequence>
       </swimLanePK>
     </SwimLane>
     <SwimLane>
-      <color>ffa8a8</color>
-      <height>165</height>
-      <width>1191</width>
+      <color>82b0b7</color>
+      <height>158</height>
+      <width>1190</width>
       <positionX>0</positionX>
-      <positionY>379</positionY>
-      <stateName>Elaborador</stateName>
+      <positionY>543</positionY>
+      <stateName>Aprovador</stateName>
       <type>2</type>
       <parentSequence>0</parentSequence>
       <swimLanePK>
@@ -1397,12 +1687,12 @@
       </swimLanePK>
     </SwimLane>
     <SwimLane>
-      <color>82b0b7</color>
-      <height>158</height>
-      <width>1190</width>
+      <color>ffa8a8</color>
+      <height>165</height>
+      <width>1191</width>
       <positionX>0</positionX>
-      <positionY>543</positionY>
-      <stateName>Aprovador</stateName>
+      <positionY>379</positionY>
+      <stateName>Elaborador</stateName>
       <type>2</type>
       <parentSequence>0</parentSequence>
       <swimLanePK>
@@ -1420,18 +1710,7 @@
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>BPM-002</processId>
-        <version>11</version>
-        <linkSequence>116</linkSequence>
-        <bendSequence>1</bendSequence>
-      </processLinkBendPK>
-      <positionX>96</positionX>
-      <positionY>280</positionY>
-    </ProcessLinkBend>
-    <ProcessLinkBend>
-      <processLinkBendPK>
-        <companyId>1</companyId>
-        <processId>BPM-002</processId>
-        <version>11</version>
+        <version>20</version>
         <linkSequence>118</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1442,29 +1721,29 @@
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>BPM-002</processId>
-        <version>11</version>
+        <version>20</version>
         <linkSequence>127</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
-      <positionX>880</positionX>
-      <positionY>184</positionY>
+      <positionX>824</positionX>
+      <positionY>214</positionY>
     </ProcessLinkBend>
     <ProcessLinkBend>
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>BPM-002</processId>
-        <version>11</version>
+        <version>20</version>
         <linkSequence>127</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
-      <positionX>612</positionX>
-      <positionY>184</positionY>
+      <positionX>607</positionX>
+      <positionY>214</positionY>
     </ProcessLinkBend>
     <ProcessLinkBend>
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>BPM-002</processId>
-        <version>11</version>
+        <version>20</version>
         <linkSequence>128</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1475,7 +1754,7 @@
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>BPM-002</processId>
-        <version>11</version>
+        <version>20</version>
         <linkSequence>129</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1486,7 +1765,7 @@
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>BPM-002</processId>
-        <version>11</version>
+        <version>20</version>
         <linkSequence>131</linkSequence>
         <bendSequence>1</bendSequence>
       </processLinkBendPK>
@@ -1497,15 +1776,85 @@
       <processLinkBendPK>
         <companyId>1</companyId>
         <processId>BPM-002</processId>
-        <version>11</version>
+        <version>20</version>
         <linkSequence>131</linkSequence>
         <bendSequence>2</bendSequence>
       </processLinkBendPK>
       <positionX>222</positionX>
       <positionY>675</positionY>
     </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <version>20</version>
+        <linkSequence>132</linkSequence>
+        <bendSequence>1</bendSequence>
+      </processLinkBendPK>
+      <positionX>880</positionX>
+      <positionY>195</positionY>
+    </ProcessLinkBend>
+    <ProcessLinkBend>
+      <processLinkBendPK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <version>20</version>
+        <linkSequence>132</linkSequence>
+        <bendSequence>2</bendSequence>
+      </processLinkBendPK>
+      <positionX>517</positionX>
+      <positionY>195</positionY>
+    </ProcessLinkBend>
   </list>
   <list/>
+  <list/>
+  <list>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <fieldId>relacionado</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Documento aplicável a</fieldDescription>
+      <slotId>1</slotId>
+    </ProcessFormField>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <fieldId>docAjustado</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Documento já ajustado?</fieldDescription>
+      <slotId>2</slotId>
+    </ProcessFormField>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <fieldId>descricao</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Descrição da solicitação</fieldDescription>
+      <slotId>3</slotId>
+    </ProcessFormField>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <fieldId>documento</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Nome do documento</fieldDescription>
+      <slotId>4</slotId>
+    </ProcessFormField>
+    <ProcessFormField>
+      <processFormFieldPK>
+        <companyId>1</companyId>
+        <processId>BPM-002</processId>
+        <fieldId>solicitante</fieldId>
+      </processFormFieldPK>
+      <fieldDescription>Solicitante</fieldDescription>
+      <slotId>5</slotId>
+    </ProcessFormField>
+  </list>
   <list/>
   <list/>
   <list/>

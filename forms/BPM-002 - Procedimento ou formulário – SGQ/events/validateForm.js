@@ -12,6 +12,10 @@ function validateForm(form) {
         if (form.getValue("documento") == '') {
             throw "Nome do documento n\u00E3o pode ser vazio.";
         }
+
+        if (form.getValue("docAjustado") == '') {
+            throw "Necessário informar se documento já está ajustado.";
+        }
     }
 
     if(activity == 9){
@@ -28,11 +32,11 @@ function validateForm(form) {
 
     if(activity == 100){
 
-        if (form.getValue("departamento") == '' && form.getValue('rdEncaminhamento2') != 'Ajustar documento') {
+        if (form.getValue("departamento") == '' && form.getValue('rdEncaminhamento2') != 'Ajustar documento' && form.getValue('rdEncaminhamento2') != 'Finalizar solicitacao') {
             throw "Selecione o departamento respons\u00E1vel";
         }
         
-        if(form.getValue("rdAprovIndex") == "" && form.getValue('rdEncaminhamento2') != 'Ajustar documento'){
+        if(form.getValue("rdAprovIndex") == "" && form.getValue('rdEncaminhamento2') != 'Ajustar documento' && form.getValue('rdEncaminhamento2') != 'Finalizar solicitacao'){
             throw "Necessário informar se exite aprovadores adicionais.";
         }
 
@@ -40,6 +44,10 @@ function validateForm(form) {
             throw "Necessário informar tipo de encaminhamento.";   
         }
 
+        if(form.getValue('rdEncaminhamento2') == 'Finalizar solicitacao' && form.getValue("justificaParecer") == ""){
+            throw "Necessário justificar o motivo da finalização da solicitação.";
+        }
+        
         if(form.getValue('aprovAdicional') == 'sim' && form.getValue('indextabResp') == ''){
             throw "Necessário inserir aprovadores adicionais.";      
         }

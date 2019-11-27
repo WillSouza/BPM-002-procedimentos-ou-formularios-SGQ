@@ -1,6 +1,3 @@
-var myLoading2  = FLUIGC.loading(window);
-
-var controle = [];
 var eztecForms = {
         params: {},
         initForm: function(params) {    
@@ -15,7 +12,39 @@ var eztecForms = {
             });
         },
         onView: function(params) { //Visualização do formulário sem a possibilidade de edição (consulta)
+            var WKNumState = params.WKNumState;
+            
+            console.log("### View Tarefa : " + WKNumState);
 
+
+
+            if (WKNumState == 4 || WKNumState == 9){
+
+                $(".departamento").addClass('hide');
+                $(".rdEncaminhamento").addClass('hide');
+                $(".justificaParecer").addClass('hide');
+                $(".tabResp").addClass('hide');
+                $("#btnObs").addClass('hide');
+            
+            } else if (WKNumState == 103 || WKNumState == 100){
+                $(".departamento").addClass('hide');
+                //$(".rdEncaminhamento").addClass('hide');
+                $(".justificaParecer").addClass('hide');
+                $(".tabResp").addClass('hide');
+                $("#btnObs").addClass('hide');
+            
+            } else if (WKNumState == 29){
+                $(".justificaParecer").addClass('hide');
+                $(".tabResp").addClass('hide');
+                $("#btnObs").addClass('hide');
+                $(".rdEncaminhamento").addClass('hide');
+
+            } else if (WKNumState == 31 || WKNumState == 61){
+                $(".justificaParecer").addClass('hide');
+                $(".lixeira").addClass('hide');
+                $("#btnObs").addClass('hide');
+
+            }
         },
         onEdit: function(params) {  //Edição do formulário
            
@@ -35,6 +64,8 @@ var eztecForms = {
             $(".rdEncaminhamento").addClass("hide");
 
             $(".departamento").addClass("hide");
+
+            $(".justificaParecer").css('display','none');
 
             if($("#valrdaprovAdicional").val() == '1'){
                
@@ -57,6 +88,7 @@ var eztecForms = {
                 console.log("ENTROU NO IF Tarefa Inicial");
 
                 $("#analistaQualidade").val("Pool:Group:BPM-002-Adm-GestaoQualidade");
+                validaGrupo();
 
             }
 
@@ -85,9 +117,15 @@ var eztecForms = {
             // Tarefa pré-aprovar documento
             if(WKNumState == "100"){
 
+                $(".relacionado").removeClass("hide");
                 $(".radioAprov").removeClass("hide");
                 $(".departamento").removeClass("hide");
-                $(".novoButton").removeClass('hide');
+                //$(".novoButton").removeClass('hide');
+                $(".justificaParecer").removeClass('hide');
+                $(".justificaParecer").css('display','none');
+                $("#descricao").removeAttr("readonly");
+                //$("#btnAddResp").addClass('hide');
+
                 //$("#rdAprovIndex").val('');
 
                 $(".nomeAprovador").addClass('hide');
@@ -95,8 +133,11 @@ var eztecForms = {
 
                 $("#indexLooping").val('0');
 
-                 $("input[name='rdEncaminhamento2']").removeAttr("checked");
-                 $("#valrdEncaminhamento2").val('');
+                $("input[name='rdEncaminhamento2']").removeAttr("checked");
+                $("#valrdEncaminhamento2").val('');
+                
+                $("input[name='aprovAdicional']").removeAttr("checked");
+                $("#valrdaprovAdicional").val('');
                  
                  //$("input[name='aprovAdicional']").removeAttr("checked");
 
@@ -115,10 +156,13 @@ var eztecForms = {
 
             if(WKNumState == "29"){
 
+                $(".relacionado").removeClass("hide");
                 $(".rdAprova").removeClass('hide');
                 $("input[name='rdAprova']").removeAttr("checked");
                 $("#motivoCancel").val('');       
-                $("#valrdAprova").val('');         
+                $("#valrdAprova").val('');        
+                
+                $("#relacionado").prop("disabled",true);
 
                 var papel = $("#arrayAprovador").val();
                 var array = papel.split(',');
@@ -182,16 +226,23 @@ var eztecForms = {
 
             if(WKNumState == "103"){
                 verificaAnexo();
+
+                if ($("#analistaQualidade2").val() == ""){
+                    $("#analistaQualidade2").val($("#codUserAtivo").val());
+                }
             }   
 
 
             if(WKNumState == '31'){
+                $(".relacionado").removeClass("hide");
                 $(".departamento").removeClass('hide');
                 $(".tabResp").removeClass('hide');
                 $(".nomeAprovador").removeClass('hide');
                 $(".dataAprovacao").removeClass('hide');
                 $(".lixeira").addClass('hide');
                 $(".revisorAdicional").attr('readonly','readonly');
+
+                $("#relacionado").prop("disabled", true);
             }
             
             setTimeout(function(){
@@ -246,21 +297,21 @@ var eztecForms = {
                 if($(this).val() === 'Ajustar documento'){
 
                     $("#valrdEncaminhamento").val('Ajustar documento');
-                   $(".justificaParecer").addClass('hide');
+                    $(".justificaParecer").slideUp('slow');
                     $("#justificaParecer").val('');
                 }
 
                 if($(this).val() === 'Propor Alteracao'){
 
                     $("#valrdEncaminhamento").val('Propor Alteracao');
-                    $(".justificaParecer").addClass('hide');
+                    $(".justificaParecer").slideUp('slow');
                     $("#justificaParecer").val('');
                 }
 
                 if($(this).val() === 'Finalizar solicitacao'){
 
                     $("#valrdEncaminhamento").val('Finalizar solicitacao');
-                    $(".justificaParecer").removeClass('hide');
+                    $(".justificaParecer").slideDown('slow');
                     // $('.justificaParecer').fadeToggle("slow");
                    
                 }
@@ -273,13 +324,25 @@ var eztecForms = {
                 if($(this).val() === 'Ajustar documento'){
 
                     $("#valrdEncaminhamento2").val('Ajustar documento');
+                    $(".justificaParecer").slideUp('slow');
+                    $("#justificaParecer").val('');
                    
                 }
 
                 if($(this).val() === 'Aprovar documento'){
 
                     $("#valrdEncaminhamento2").val('Aprovar documento');
+                    $(".justificaParecer").slideUp('slow');
+                    $("#justificaParecer").val('');
                     
+                }
+
+                if($(this).val() === 'Finalizar solicitacao'){
+
+                    $("#valrdEncaminhamento2").val('Finalizar solicitacao');
+                    $(".justificaParecer").slideDown('slow');
+                    // $('.justificaParecer').fadeToggle("slow");
+                   
                 }
             });
 
@@ -302,6 +365,48 @@ var eztecForms = {
                 }
             }); 
 
+
+            // focus em campos 
+
+            $("#documento").focus(function () {
+                colorBorder('documento');
+            });
+            
+            $("input[name='docAjustado']").change(function () {
+                colorBorder('docAjustado');
+            });
+           
+            $("#descricao").focus(function () {
+                colorBorder('descricao');
+            });
+            
+            $("input[name='rdEncaminhamento']").change(function () {
+                colorBorder('rdEncaminhamento');
+            });
+
+            $("#justificaParecer").focus(function () {
+                colorBorder('justificaParecer');
+            });
+
+            $("#relacionado").change(function(){
+                colorBorder('relacionado');
+            });
+            
+            $("input[name = 'aprovAdicional']").change(function(){
+                colorBorder('aprovAdicional');
+            });
+            
+            $("input[name = 'rdEncaminhamento2']").change(function(){
+                colorBorder('rdEncaminhamento2');
+            });
+
+            $("#motivoCancel").focus(function () {
+                colorBorder('motivoCancel');
+            });
+           
+
+            // fim dos focus em campos
+
         }                           
 };
 
@@ -317,6 +422,7 @@ function setSelectedZoomItem(selectedItem) {
         $("#codDepartamento").val("Pool:Role:"+selectedItem.ROLE_CODE);
         $("#validaPapel").val(selectedItem.ROLE_CODE);
 
+        colorBorder('departamento');
         concatenaAprovador();
        
     }
@@ -495,4 +601,32 @@ function verificaAnexo(){
               
          }
      } */ 
+}
+
+function validaGrupo(){
+
+    var codSolic = $("#codSolicitante").val();
+    var codGrupo = "BPM-002-Qualidade";
+
+    var c1 = DatasetFactory.createConstraint("colleagueGroupPK.groupId", codGrupo, codGrupo, ConstraintType.MUST);
+
+    var dataset = DatasetFactory.getDataset("colleagueGroup", null, [c1], null);
+
+    console.log(" -- Dataset length: "+ dataset.values.length);
+
+    for(var i=0;i < dataset.values.length;i++){
+
+        if( dataset.values[i]["colleagueGroupPK.colleagueId"] == codSolic){
+            console.log("--- Usuário participa do grupo-- ");
+            $(".docAjustado").removeClass("hide");
+            $("input[name='docAjustado']").removeAttr("checked");
+            $("#analistaQualidade2").val($("#codUserAtivo").val());
+        }
+    }
+}
+
+function colorBorder(campo) {
+    //reloadCSS();
+    $('.' + campo).css("color", "");
+    $('#' + campo).css("border-color", "");
 }

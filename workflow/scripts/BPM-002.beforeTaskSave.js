@@ -9,7 +9,7 @@ function beforeTaskSave(colleagueId,nextSequenceId,userList){
     log.info("#### BEFORETASK WKNextState : "+ WKNextState);
 
      if (WKNumState == 103){
-    	
+		/*
     	 var anexos   = hAPI.listAttachments();
          var temAnexo = false;
 
@@ -19,9 +19,11 @@ function beforeTaskSave(colleagueId,nextSequenceId,userList){
 
          if (!temAnexo) {
              throw "É preciso anexar o documento para continuar o processo!";
-         }
+		 }
+		 */
     }
 
+	// Caminho de "Aprovadores adicionais" para "Analisar Solicitação" 
   	if (WKNumState == 106 && WKNextState == 9){
 
   		var userAtivo	= hAPI.getCardValue('userAtivo');
@@ -73,7 +75,8 @@ function beforeTaskSave(colleagueId,nextSequenceId,userList){
 	    hAPI.addCardChild("tabObs", childData);
 
   	}
-
+	
+	// Caminho da tarefa Analisar Solicitação para  FIM
   	if (WKNumState == 23 && WKNextState == 119){
 
   		var userAtivo	= hAPI.getCardValue('userAtivo');
@@ -125,6 +128,7 @@ function beforeTaskSave(colleagueId,nextSequenceId,userList){
 	    hAPI.addCardChild("tabObs", childData);
   	}
 
+	// Tarefa "Ajustar documento"
   	if (WKNumState == 103) {
 
     	var numProces = hAPI.getCardValue('WKNumProces');
@@ -145,14 +149,52 @@ function beforeTaskSave(colleagueId,nextSequenceId,userList){
 	 	log.info("**** anexo: "+qtdAnexo);
 
 
+		
+	}
+	// Tarefa "Publicar documento"
+	if(WKNextState ==31){
 
-	   	if(rows <= qtdAnexo ){
+		var userAtivo	= hAPI.getCardValue('userAtivo');
 
-	   		throw "Necessário inserir um anexo.";
-	   	}	
+		var now = new Date();
+	    // console.log("FRE..." + now.getDay());
+	    
+	    var nowDate     = now.getDate();
+	    var nowMonth = now.getMonth() + 1;
+	    var nowYear     = now.getFullYear();
+	    
+	    if(nowMonth < 10){
+	        nowMonth = "0"+nowMonth;
+	    }
+	    
+	    if(nowDate < 10){
+	        nowDate = "0"+nowDate;
+	    }
 
-    }// fim if
-  	
+	    var hora = now.getHours().toString();
+	    var minuto = now.getMinutes().toString();
+	    
+	    if(hora.length == 1){
+	        hora = 0+hora;
+	    }
+
+	    if(minuto.length == 1){
+	        minuto = 0+minuto;
+	    }
+
+	  //  var dataHora = date+"/"+mes+"/"+fullDate.getFullYear() +" "+hora+ ":"+minuto;
+
+	    log.info("--- index :"+ index);
+	    var data = (nowDate+"/"+nowMonth+"/"+nowYear+" "+hora+":"+minuto);
+		
+		var childData = new java.util.HashMap();
+		childData.put("revisorAdicional", hAPI.getCardValue('departamento'));
+	    childData.put("nomeAprovador", userAtivo);
+	    childData.put("dataAprovacao", data);
+		hAPI.addCardChild("tabResp", childData);
+		
+		
+	}
 
   	/*
   	if(WKNumState == 29){

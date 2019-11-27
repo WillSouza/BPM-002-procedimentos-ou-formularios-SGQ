@@ -10,6 +10,7 @@ function displayFields(form, customHTML) {
 	var colaborador = DatasetFactory.getDataset("colleague", null, constraints, null);
 
 	form.setValue('userAtivo',colaborador.getValue(0,"colleagueName"));
+	form.setValue('codUserAtivo', colaborador.getValue(0, "colleaguePK.colleagueId"));
 
 
 	if (form.getValue("dataSolic") == "") {
